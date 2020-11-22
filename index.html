@@ -3,13 +3,51 @@
 <head>
     <meta charset="UTF-8">
     <title>Webtech: Alle Aufgaben</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <style>
+        * {
+            --htw-gruen: #76B900;
+            --htw-grau: #AFAFAF;
+            --htw-orange: #FF5F00;
+            --htw-blau: #0082D1;
+        }
+
+        .container {
+            max-width: 60%;
+        }
+
+        h1, ul {
+            margin: 10px;
+            text-align: center;
+        }
+
+        a {
+            color: var(--htw-orange);
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: var(--htw-blau);
+            text-decoration: none;
+        }
+
+    </style>
 </head>
 <body>
-<h1>Alle Aufgaben für Webtechnologien 2020/2021</h1>
-<ul>
-    <li><a href="./Uebung1/uebung1.html">Übung 1</a></li>
-    <li><a href="./Uebung2/uebung2.html">Übung 2</a></li>
-    <li><a href="./Uebung3/uebung3.html">Übung 3</a></li>
-</ul>
+
+<header class="jumbotron">
+    <h1>Alle Aufgaben für Webtechnologien 2020/2021</h1>
+</header>
+
+<main class="container">
+    <ul class="list-group">
+        <li class="list-group-item list-group-item-action"><a href="./Uebung1/uebung1.html">Übung 1</a></li>
+        <li class="list-group-item list-group-item-action"><a href="./Uebung2/uebung2.html">Übung 2</a></li>
+        <li class="list-group-item list-group-item-action"><a href="./Uebung3/uebung3.html">Übung 3</a></li>
+        <li class="list-group-item list-group-item-action"><a href="./Uebung4/uebung4.html">Übung 4</a></li>
+    </ul>
+</main>
+
 </body>
 </html>
