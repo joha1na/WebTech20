@@ -1,0 +1,31 @@
+.sidenav-container {
+  height: 100%;
+  background: indigo;
+  color: white;
+}
+
+.sidenav {
+  width: 200px;
+  background: indigo;
+  color: white;
+}
+
+.sidenav .mat-toolbar {
+  /*background: inherit;*/
+  background: indigo;
+}
+
+.mat-toolbar.mat-primary {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background: indigo;
+}
+
+.mat-toolbar {
+  color: white;
+}
+
+.mat-list-item {
+  color: white;
+}
