@@ -8,9 +8,9 @@ import { ReadComponent } from './members/read/read.component';
 import { UpdateComponent } from './members/update/update.component';
 import { DeleteComponent } from './members/delete/delete.component';
 import { HttpClientModule } from '@angular/common/http';
-import { NgxBootstrapIconsModule, PencilSquare } from 'ngx-bootstrap-icons';
+import { NgxBootstrapIconsModule, PencilSquare, Trash } from 'ngx-bootstrap-icons';
 import { FormComponent } from './members/read/form/form.component';
-import {ReactiveFormsModule} from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NavComponent } from './nav/nav.component';
 import { LayoutModule } from '@angular/cdk/layout';
@@ -19,9 +19,12 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
+import { CommonModule } from '@angular/common';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 const icons = {
   PencilSquare,
+  Trash,
 };
 
 @NgModule({
@@ -46,7 +49,9 @@ const icons = {
     MatButtonModule,
     MatSidenavModule,
     MatIconModule,
-    MatListModule
+    MatListModule,
+    CommonModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]
