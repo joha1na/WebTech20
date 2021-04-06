@@ -93,6 +93,10 @@ export class EditComponent implements OnInit {
       {
         this.deleteOne(this.game?.id);
       }
+      if (result === 'cancel')
+      {
+        window.location.reload();
+      }
     });
   }
 }

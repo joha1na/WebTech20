@@ -1,7 +1,7 @@
 <div *ngIf="selectedId == 0" class="container">
-  <h3>Liste der verfügbaren Games</h3>
+  <h3 style="font-weight: bold">Alle verfügbaren Games</h3>
   <table class="table table-striped table-hover">
-    <caption>Liste der Games</caption>
+<!--    <caption>Liste der Games</caption>-->
     <thead>
     <tr>
       <th>Nr.</th>
@@ -20,14 +20,14 @@
       <td>{{game.platform}}</td>
       <td>{{game.status}}</td>
       <td>{{game.rating}}
-      <td><a [routerLink]="['/edit/', game.id]">
+      <td align=center><a [routerLink]="['/edit/', game.id]">
         <i-bs
           name="hammer"
           class="text-warning"
           width="1.5em"
           height="1.5em">
         </i-bs></a></td>
-      <td>
+      <td align=center>
         <i-bs
           name="trash"
           class="text-danger"
@@ -42,7 +42,7 @@
 </div>
 <div *ngIf="selectedId > 0" class="container">
   <div *ngIf="error">
-    <h1>{{ selectedId }}</h1>
+    <h3 style="font-weight: bold">{{ selectedId }}</h3>
     <p>{{ error?.message }}</p>
     <p>{{ error?.status }}</p>
     <p><a [routerLink]="['/edit']">Zurück zur Übersicht</a></p>
@@ -56,13 +56,13 @@
 
 <ng-template #content let-modal>
   <div class="modal-header">
-    <h4 class="modal-title" id="modal-basic-title">Löschen bestätigen</h4>
+    <h3 class="modal-title" id="modal-basic-title">Löschen bestätigen</h3>
     <button type="button" class="close" aria-label="Close" (click)="modal.close('cancel')">
       <span aria-hidden="true">&times;</span>
     </button>
   </div>
   <div class="modal-body">
-    <h4 style="color: red">Wollen Sie wirklich diesen Datensatz löschen?</h4>
+    <h3 style="font-weight: bold">Wollen Sie wirklich diesen Datensatz löschen?</h3>
     <form [formGroup]="form">
       <div class="form-group">
         <label for="inpId">Id</label>
