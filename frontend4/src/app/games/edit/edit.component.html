@@ -1,0 +1,104 @@
+<div *ngIf="selectedId == 0" class="container">
+  <h3>Liste der verfügbaren Games</h3>
+  <table class="table table-striped table-hover">
+    <caption>Liste der Games</caption>
+    <thead>
+    <tr>
+      <th>Nr.</th>
+      <th>Name des Games</th>
+      <th>Plattform</th>
+      <th>Status</th>
+      <th>Bewertung</th>
+      <th>Bearbeiten</th>
+      <th>Löschen</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let game of games; let i=index; trackBy: trackByData">
+      <td>{{ i+1}}</td>
+      <td>{{game.gamename}}</td>
+      <td>{{game.platform}}</td>
+      <td>{{game.status}}</td>
+      <td>{{game.rating}}
+      <td><a [routerLink]="['/edit/', game.id]">
+        <i-bs
+          name="hammer"
+          class="text-warning"
+          width="1.5em"
+          height="1.5em">
+        </i-bs></a></td>
+      <td>
+        <i-bs
+          name="trash"
+          class="text-danger"
+          width="1.5em"
+          height="1.5em"
+          (click)="open(content, game.id)">
+        </i-bs>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+<div *ngIf="selectedId > 0" class="container">
+  <div *ngIf="error">
+    <h1>{{ selectedId }}</h1>
+    <p>{{ error?.message }}</p>
+    <p>{{ error?.status }}</p>
+    <p><a [routerLink]="['/edit']">Zurück zur Übersicht</a></p>
+  </div>
+  <div *ngIf="game">
+    <app-form [data]="game" (updateEvent)="update($event)"></app-form>
+  </div>
+</div>
+
+<!-- modaler Dialog fuer das Loeschen -->
+
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Löschen bestätigen</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.close('cancel')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <h4 style="color: red">Wollen Sie wirklich diesen Datensatz löschen?</h4>
+    <form [formGroup]="form">
+      <div class="form-group">
+        <label for="inpId">Id</label>
+        <div class="input-group">
+          <input id="inpId" class="form-control" formControlName="idControl" value="{{ game?.id }}" readonly>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="inpGN">Name des Games</label>
+        <div class="input-group">
+          <input id="inpGN" class="form-control" formControlName="gameNameControl" value="{{ game?.gamename }}" readonly>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="inpPF">Plattform</label>
+        <div class="input-group">
+          <input id="inpPF" class="form-control" formControlName="platformControl" value="{{ game?.platform }}" readonly>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="inpStatus">Status</label>
+        <div class="input-group">
+          <input id="inpStatus" class="form-control" formControlName="statusControl" value="{{ game?.status }}" readonly>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="inpRating">Bewertung</label>
+        <div class="input-group">
+          <input id="inpRating" class="form-control" formControlName="ratingControl" value="{{ game?.rating }}" readonly>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-dark" (click)="modal.close('delete')">Löschen</button>
+    <button type="button" class="btn btn-secondary" (click)="modal.close('cancel')">Abbrechen</button>
+  </div>
+</ng-template>
+
