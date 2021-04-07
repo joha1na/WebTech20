@@ -11,7 +11,12 @@ div.container {
 
 div.home {
   padding: 1%;
-  max-width: 80%;
+  width: 80%;
+}
+
+div.modal-header {
+  background: dimgray;
+  color: white;
 }
 
 .sidenav-container {

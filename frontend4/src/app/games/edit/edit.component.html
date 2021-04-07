@@ -20,14 +20,14 @@
       <td>{{game.platform}}</td>
       <td>{{game.status}}</td>
       <td>{{game.rating}}
-      <td align=center><a [routerLink]="['/edit/', game.id]">
+      <td align="center"><a [routerLink]="['/edit/', game.id]">
         <i-bs
           name="hammer"
           class="text-warning"
           width="1.5em"
           height="1.5em">
         </i-bs></a></td>
-      <td align=center>
+      <td  align="center">
         <i-bs
           name="trash"
           class="text-danger"
@@ -55,6 +55,7 @@
 <!-- modaler Dialog fuer das Loeschen -->
 
 <ng-template #content let-modal>
+  <div class="container">
   <div class="modal-header">
     <h3 class="modal-title" id="modal-basic-title">Löschen bestätigen</h3>
     <button type="button" class="close" aria-label="Close" (click)="modal.close('cancel')">
@@ -99,6 +100,7 @@
   <div class="modal-footer">
     <button type="button" class="btn btn-dark" (click)="modal.close('delete')">Löschen</button>
     <button type="button" class="btn btn-secondary" (click)="modal.close('cancel')">Abbrechen</button>
+  </div>
   </div>
 </ng-template>
 
